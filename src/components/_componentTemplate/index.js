@@ -1,20 +1,22 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
 import Present from "./Present";
+// style
+import style from './style';
 
 // ACTIONS
-import {exampleAction} from '../../actions'
+import {exampleAction, undo, redo} from '../../actions'
 
 // STORE
 function mapStateToProps ({dataReducer}){
-    let { values } = dataReducer;
+    let { values } = dataReducer.present;;
     return { values }
 }
 
 
 class ComponentTemplateContainer extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this._clickListItem = this._clickListItem.bind(this);
     }
 
@@ -31,9 +33,12 @@ class ComponentTemplateContainer extends Component {
     }
 
     render() {
-        let {values} = this.props;
+        let {values, dispatch} = this.props;
 
-        return <Present values={values} click={this._clickListItem} />;
+        return <Present values={values}
+                    click={this._clickListItem}
+                    undo={() => {dispatch(undo())}}
+                    redo={() => {dispatch(redo())}} />;
     }
 
     _clickListItem(e) {

@@ -3,17 +3,19 @@ import { Component } from 'react'
 // redux
 import withRedux from 'next-redux-wrapper' // redux provider for next
 import makeStore from '../src/redux/store'
-import {exampleAction} from '../src/actions'
 
 import Head from 'next/head'; // html head tag
 import Link from 'next/link' // component for linking to other pages
 
+import ComponentTemplate from '../src/components/_componentTemplate'
+
+
 // ACTIONS
-import {exampleAction} from '../../actions'
+import {exampleAction} from '../src/actions'
 
 // STORE
 function mapStateToProps ({dataReducer}){
-    let { values } = dataReducer;
+    let { values } = dataReducer.present;
     return { values }
 }
 
@@ -29,6 +31,7 @@ class Index extends Component {
 
     render(){
         let color = 'red';
+        console.log(ComponentTemplate);
 
         return (
             <div>
@@ -37,7 +40,7 @@ class Index extends Component {
                 </Head>
                 <div><Link href='/'> home </Link></div>
                 <h1> 안녕, Next.js </h1>
-                <div> hello {this.props.values}</div>
+                <div> hello1 {this.props.values}</div>
                 <ComponentTemplate />
             </div>
         )
