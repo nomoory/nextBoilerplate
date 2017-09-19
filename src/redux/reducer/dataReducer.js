@@ -1,10 +1,10 @@
 import update from 'immutability-helper';
 
 const initialState = {
-  values: [1,2]
+  values: [1,2],
 }
 
-// REDUCERS
+// REDUCER
 export default (state = initialState, action) => {
     switch (action.type) {
         case "EXAMPLE_ACTION": {

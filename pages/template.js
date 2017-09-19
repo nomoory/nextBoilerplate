@@ -1,17 +1,17 @@
-import { Component } from 'react'
+// REACT
+import { Component } from 'react';
+// REDUX
+import withRedux from 'next-redux-wrapper';
+import makeStore from '../src/redux/store';
+// NEXT
+import Head from 'next/head';
+import Link from 'next/link';
 
-// redux
-import withRedux from 'next-redux-wrapper' // redux provider for next
-import makeStore from '../src/redux/store'
-
-import Head from 'next/head'; // html head tag
-import Link from 'next/link' // component for linking to other pages
-
-import ComponentTemplate from '../src/components/_componentTemplate'
-
+// COMPONENTS
+import ComponentTemplate from '../src/components/Template';
 
 // ACTIONS
-import {exampleAction} from '../src/actions'
+import {exampleAction} from '../src/actions';
 
 // STORE
 function mapStateToProps ({dataReducer}){
@@ -30,17 +30,14 @@ class Index extends Component {
     }
 
     render(){
-        let color = 'red';
-        console.log(ComponentTemplate);
-
         return (
             <div>
                 <Head>
                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
                 </Head>
-                <div><Link href='/'> home </Link></div>
-                <h1> 안녕, Next.js </h1>
-                <div> hello1 {this.props.values}</div>
+                <div><Link href='/'> HOME </Link></div>
+                <h1> Template page 입니다 </h1>
+                <div> Redux Test Values: {this.props.values} </div>
                 <ComponentTemplate />
             </div>
         )

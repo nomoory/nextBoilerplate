@@ -1,16 +1,23 @@
-// import ComponentWith from '../src/components/ReinforcedComponent'
-import { bindActionCreators } from 'redux'
-import { Component } from 'react'
-
+// REACT
+import { Component } from 'react';
+// REDUX
+import withRedux from 'next-redux-wrapper';
+import makeStore from '../src/redux/store';
+// NEXT
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
 
-// import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper'
+// COMPONENTS
+import ComponentTemplate from '../src/components/Template';
 
-import makeStore from '../src/redux/store'
+// ACTIONS
+import {exampleAction} from '../src/actions';
 
-import {exampleAction} from '../src/actions'
+// STORE
+function mapStateToProps ({dataReducer}){
+    let { values } = dataReducer.present;
+    return { values }
+}
 
 class Index extends Component {
     static getInitialProps ({ store, isServer, pathname, query }) {
@@ -20,9 +27,6 @@ class Index extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            fontSize: 1
-        }
     }
 
     render(){
@@ -33,24 +37,12 @@ class Index extends Component {
                 <Head>
                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
                 </Head>
-                    <style jsx>
-                        {`
-                            h1 {
-                                color: red
-                            }
-                        `}
-                    </style>
-                    <h1 >
-                        안녕, Next.js
-                    </h1>
-                    <div onClick={(e)=>{
-                        //this.setState({fontSize: this.state.fontSize + 0.5});
-                    }} > hello {this.props.value}</div>
-
-                    <div><Link href='/'> home</Link></div>
+                <div><Link href='/'> HOME </Link></div>
+                <h1> 안녕, Next.js </h1>
+                <div> Go to <Link href= '/template'> template </Link></div>
             </div>
         )
     }
 }
 
-export default withRedux( makeStore, state => state.dataReducer )(Index)
+export default withRedux( makeStore, mapStateToProps )(Index)
