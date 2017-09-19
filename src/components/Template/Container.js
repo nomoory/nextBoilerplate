@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // ACTIONS
-import {exampleAction, undo, redo} from '../../redux/actions'
+import {exampleAction, undo, redo} from 'actions'
 
 // STORE
 function mapStateToProps ({dataReducer: {present}}) {

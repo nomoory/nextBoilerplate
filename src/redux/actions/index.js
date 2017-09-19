@@ -1,9 +1,9 @@
 // ACTIONS
 export const exampleAction = ({ id = 1 } = {}) => {
-    return {
-        type: 'EXAMPLE_ACTION',
-        id: id
-    }
+   return {
+       type: 'EXAMPLE_ACTION',
+       id: id
+   }
 }
 
 export const undo = () => {

@@ -8,10 +8,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 // COMPONENTS
-import ComponentTemplate from '../src/components/Template';
+import ComponentTemplate from 'components/Template';
 
 // ACTIONS
-import {exampleAction} from '../src/actions';
+import {exampleAction} from 'actions';
 
 // STORE
 function mapStateToProps ({dataReducer}){
