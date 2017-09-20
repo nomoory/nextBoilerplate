@@ -9,15 +9,6 @@ if (!dev) {
   moduleAlias.addAlias('react-dom', 'preact-compat')
 }
 
-moduleAlias.addAliases({ // transpile 된 파일의 directory를 참조하도록함
-    components: __dirname + '/.next/dist/src/components/',
-    constants: __dirname + '/.next/dist/src/constants/',
-    entities: __dirname + '/.next/dist/src/entities/',
-    actions:  __dirname + '/.next/dist/src/redux/actions'
-    services: __dirname + '/.next/dist/src/services/',
-    utils: __dirname + '/.next/dist/src/util/',
-})
-
 const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')

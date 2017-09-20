@@ -7,9 +7,6 @@ import makeStore from '../src/redux/store';
 import Head from 'next/head';
 import Link from 'next/link';
 
-// COMPONENTS
-import ComponentTemplate from 'components/Template';
-
 // ACTIONS
 import {exampleAction} from 'actions';
 
