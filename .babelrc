@@ -2,19 +2,16 @@
     "presets": [
         "next/babel",
         "stage-3",
-        "import-export"
     ],
     "plugins": [
-        [ "module-alias",
-            [
-                { "src": "./src/utils", "expose": "utils" },
-                { "src": "./src/components", "expose": "components" },
-                { "src": "./src/constants", "expose": "constants" },
-                { "src": "./src/redux/actions", "expose": "actions" },
-                { "src": "./src/redux/entities", "expose": "entities" },
-                { "src": "./src/redux/services", "expose": "services" },
-                { "src": "npm:lodash", "expose": "underscore" }
-            ]
-        ]
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "actions": "./src/redux/actions",
+                "reducers": "./src/redux/reducers",
+                "stores": "./src/redux/stores",
+                "underscore": "lodash"
+            }
+        }]
     ]
 }
