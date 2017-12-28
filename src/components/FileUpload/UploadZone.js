@@ -11,6 +11,17 @@ import Dropzone from 'react-dropzone';
 let style = {
     templateComponentContainerStyle: {
 
+    },
+    dropOverlay : {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        padding: '2.5em 0',
+        background: 'rgba(219,219,219,0.1)',
+        textAlign: 'center',
+        color: '#fff',
     }
 }
 
@@ -37,6 +48,7 @@ class UploadZone extends Component {
         super(props);
         this.state = {
             files:[],
+            dropzoneActive: false
         };
         // this.props.dispatch();
     }
@@ -44,24 +56,14 @@ class UploadZone extends Component {
     render() {
         return (
             <div className="template-component-container" style={style.templateComponentContainerStyle}>
-                <section style={{position: 'relative'}}>
-                    <div className="dropzone">
-                        <Dropzone ref={(node) => { this.dropzoneRef = node; }}
-                          style={{width:"100%", height:"100px"}}
-                          onDrop={this._onDrop}
-                          >
-                          <p>Try dropping some files here, or click to select files to upload.</p>
-                        </Dropzone>
-                    </div>
-                    <aside style={{position: 'absolute', left: 0, top:0}}>
-                        <ul>
-                          {
-                            this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-                          }
-                        </ul>
-                    </aside>
-                </section>
+                <div onClick={(e) => {this.dropzoneRef.onClick(e)}}>upload</div>
                 <div onClick={this._handleOnClickButton}>send</div>
+                <div>
+                  {
+                      this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                  }
+                  {this._getDropzone()}
+                </div>
             </div>
         )
     }
@@ -81,8 +83,57 @@ class UploadZone extends Component {
     componentWillUnmount() {}
 
     // CUSTOM FUNCTIONS
-    _onDrop = (files) => {
-        this.setState({ files })
+    _getDropzone = () => {
+        let view = (
+            <Dropzone
+                className="effect_dropzone"
+                ref={(node) => { this.dropzoneRef = node; }}
+                style={{
+                    position: "absolute",
+                    width : '100%',
+                    height : '100%',
+                    zIndex: 1
+                }}
+                accept="image/png, image/gif, image/jpeg"
+                onDrop={this._onDrop}
+                onDragEnter={this._onEnter}
+                onDragLeave={this._onLeave}>
+                { this.state.dropzoneActive && <div style={style.dropOverlay}>Drop effect image files(png or gif)...</div> }
+            </Dropzone>
+        );
+
+        return view;
+    }
+
+    _onDrop = (accepted, rejected) => {
+        let files = accepted;
+        // In case, new files has same file Name
+        let newFiles = Object.assign(this.state.files);
+        for (let file of files) {
+            let hasSameName = false;
+            this.state.files.map((stateFile, index) => {
+                if(stateFile.name == file.name) {
+                    newFiles[index] = file;
+                    hasSameName = true;
+                }
+            });
+            if(!hasSameName){
+                newFiles.push(file);
+            }
+        }
+        this.setState({ files: newFiles, dropzoneActive: false });
+    }
+
+    _onEnter= (e) => {
+        this.setState({
+            dropzoneActive: true
+        });
+    }
+
+    _onDragLeave = (e) => {
+        this.setState({
+            dropzoneActive: false
+        });
     }
 
     _handleOnClickButton = (e) => {
