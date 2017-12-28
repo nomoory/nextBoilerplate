@@ -11,8 +11,12 @@ var Present = ({ props, state, style, functions}) => {
     let { } = functions;
     return (
         <div id='template-layout' style={style.mainStyle}>
-            <TemplateComponent/>
-            <FileUpload />
+            <div>
+                <TemplateComponent/>
+            </div>
+            <div>
+                <FileUpload />
+            </div>
         </div>
     )
 }

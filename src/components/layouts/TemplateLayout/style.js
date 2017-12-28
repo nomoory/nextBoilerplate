@@ -3,7 +3,7 @@ const borderLeft = '#dddddd solid 0.3px';
 let staticStyle = {
     mainStyle: {
         postion: 'relative',
-        display: 'flex',
+        display: 'block',
         width: '100%',
         height: '100%',
         overflow: 'auto'
