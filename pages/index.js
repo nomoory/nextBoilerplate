@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 // COMPONENT
 import TemplateApp from 'apps/TemplateApp';
-import TemplateComponent from 'components/TemplateComponent';
+import TemplateLayout from 'components/layouts/TemplateLayout';
 
 // STORE
 function mapStateToProps ({dataReducer}){
@@ -32,7 +32,7 @@ class Page extends Component {
     render(){
         return (
             <TemplateApp>
-                <TemplateComponent/>
+                <TemplateLayout />
             </TemplateApp>
         )
     }
