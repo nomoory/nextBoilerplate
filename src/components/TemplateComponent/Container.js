@@ -11,7 +11,7 @@ import getStyleWith from './style';
 
 // STORE
 function mapStateToProps ({dataReducer}) {
-    //let  { } = dataReducer
+    let  { } = dataReducer
     return { }
 }
 

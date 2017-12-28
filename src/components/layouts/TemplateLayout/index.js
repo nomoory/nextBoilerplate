@@ -1,8 +1,9 @@
-import contain from './Container';
+import contain from './Container'
 
 // SUBCOMPONENTS
-import TemplateComponent from 'components/TemplateComponent';
-import TreeView from 'components/TreeView';
+import TemplateComponent from 'components/TemplateComponent'
+import TreeView from 'components/TreeView'
+import FileUpload from 'components/FileUpload'
 
 var Present = ({ props, state, style, functions}) => {
     let { } = props;
@@ -11,7 +12,7 @@ var Present = ({ props, state, style, functions}) => {
     return (
         <div id='template-layout' style={style.mainStyle}>
             <TemplateComponent/>
-            <TreeView data={null}/>
+            <FileUpload />
         </div>
     )
 }
