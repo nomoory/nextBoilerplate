@@ -10,7 +10,8 @@
                 "actions": "./src/redux/actions",
                 "reducers": "./src/redux/reducers",
                 "stores": "./src/redux/stores",
-                "underscore": "lodash"
+                "underscore": "lodash",
+                "apps":  "./src/apps"
             }
         }]
     ]

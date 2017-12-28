@@ -1,23 +1,26 @@
 // REACT
 import { Component } from 'react';
+
 // REDUX
 import withRedux from 'next-redux-wrapper';
-import makeStore from '../src/redux/store';
+import makeStore from 'redux/store';
+
 // NEXT
 import Head from 'next/head';
 import Link from 'next/link';
 
-// ACTIONS
-import {exampleAction} from 'actions';
+// COMPONENT
+import TemplateApp from 'apps/TemplateApp';
+import TemplateComponent from 'components/TemplateComponent';
 
 // STORE
 function mapStateToProps ({dataReducer}){
-    let { values } = dataReducer.present;
-    return { values }
+    // let { values } = dataReducer;
+    return { /* values */ }
 }
 
-class Index extends Component {
-    static getInitialProps ({ store, isServer, pathname, query }) {
+class Page extends Component {
+    static async getInitialProps ({ store, isServer, pathname, query }) {
         //store.dispatch(exampleAction())
         return { isServer }
     }
@@ -27,19 +30,12 @@ class Index extends Component {
     }
 
     render(){
-        let color = 'red';
-
         return (
-            <div>
-                <Head>
-                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-                </Head>
-                <div><Link href='/'> HOME </Link></div>
-                <h1> 안녕, Next.js </h1>
-                <div> Go to <Link href= '/template'> template </Link></div>
-            </div>
+            <TemplateApp>
+                <TemplateComponent/>
+            </TemplateApp>
         )
     }
 }
 
-export default withRedux( makeStore, mapStateToProps )(Index)
+export default withRedux( makeStore, mapStateToProps )(Page)

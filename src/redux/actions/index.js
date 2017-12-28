@@ -1,19 +1,7 @@
-// ACTIONS
-export const exampleAction = ({ id = 1 } = {}) => {
-   return {
-       type: 'EXAMPLE_ACTION',
-       id: id
-   }
-}
+import dataAction from './dataAction';
+import undo from './undo';
 
-export const undo = () => {
-    return {
-        type: 'UNDO_COUNTER'
-    }
-}
-
-export const redo = () => {
-    return {
-        type: 'REDO_COUNTER'
-    }
-}
+export default {
+   dataAction,
+   undo,
+};

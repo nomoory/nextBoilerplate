@@ -1,1 +1,5 @@
-export const SERVER_URL = "localhost"
+import * as tmplateConstant from './templateConstant';
+
+export default {
+   tmplateConstant,
+};

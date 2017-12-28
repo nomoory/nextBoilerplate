@@ -12,5 +12,12 @@ module.exports = {
 
         // Important: return the modified config
         return config
+    },
+    exportPathMap: () => {
+        return {
+            '/': { page: '/' },
+            '/debugger': { page: '/debugger' },
+            '/manager': { page: '/manager' },
+        }
     }
 }

@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from '../reducer';
+import rootReducer from '../reducers';
 
 var makeStore = (initialState, options) => {
     const composeEnhancers = compose;
@@ -10,7 +10,6 @@ var makeStore = (initialState, options) => {
         initialState,
         composeEnhancers(applyMiddleware(thunkMiddleware))
     );
-
 }
 
 export default makeStore;
