@@ -11,7 +11,8 @@
                 "reducers": "./src/redux/reducers",
                 "stores": "./src/redux/stores",
                 "underscore": "lodash",
-                "apps":  "./src/apps"
+                "apps":  "./src/apps",
+                "layouts": "./src/layouts"
             }
         }]
     ]

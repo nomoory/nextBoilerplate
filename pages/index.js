@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 // COMPONENT
 import TemplateApp from 'apps/TemplateApp';
-import TemplateLayout from 'components/layouts/TemplateLayout';
+import TemplateLayout from 'layouts/TemplateLayout';
 
 // STORE
 function mapStateToProps ({dataReducer}){
