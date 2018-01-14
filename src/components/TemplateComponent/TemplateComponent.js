@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-// style
-let style = {
-    templateComponentContainerStyle: {
-
-    }
-}
-
 // ACTIONS
 
 // STORE
@@ -35,10 +28,25 @@ class TemplateComponent extends Component {
         // this.props.dispatch();
     }
 
-    render() {
+    containerStyle = {
+        templateComponentContainerStyle: {
 
+        }
+    }
+
+    cssStyle = ( <style jsx>{ // put CSS style here
+        `
+            #hello-world {
+                color: green;
+            }
+        `
+    }</style>)
+
+
+    render() {
         return (
-            <div className="template-component-container" style={style.templateComponentContainerStyle}>
+            <div className="template-component-container" style={this.containerStyle}>
+                {this.cssStyle}
             </div>
         )
     }

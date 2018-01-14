@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
-// STYLE
-import getStyleWith from './style';
-
 // ACTIONS
 // import { } from 'actions'
 
@@ -34,8 +31,6 @@ var contain = (Present)  => {
         }
 
         render() {
-            let style = getStyleWith(this.props) // Do not modify!!
-
             // You Can Modify
             let presentProps = ['children']; // put props name
             let presentState = []; // put state name
@@ -46,7 +41,6 @@ var contain = (Present)  => {
                 <Present
                     props={{...(_.pick(this.props, presentProps)), ...customProps}}
                     state={_.pick(this.state, presentState)}
-                    style={style}
                     functions={presentFunctions}
                 />
             )

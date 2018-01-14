@@ -23,7 +23,6 @@ class ContextMenu extends React.Component {
     }
 
     componentDidMount() {
-        console.log('c mounted');
         window.oncontextmenu = () => {
             return false;     // cancel default menu
         }
@@ -34,7 +33,6 @@ class ContextMenu extends React.Component {
     };
 
     componentWillUnmount() {
-        console.log('c unmounted');
         document.removeEventListener('contextmenu', this._handleContextMenu);
         window.removeEventListener('contextmenu', this._handleContextMenuOnWindow);
         document.removeEventListener('click', this._handleClick);

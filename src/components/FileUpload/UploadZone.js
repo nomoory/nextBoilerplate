@@ -7,24 +7,6 @@ import axios from 'axios';
 
 import Dropzone from 'react-dropzone';
 
-// style
-let style = {
-    templateComponentContainerStyle: {
-
-    },
-    dropOverlay : {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        padding: '2.5em 0',
-        background: 'rgba(219,219,219,0.1)',
-        textAlign: 'center',
-        color: '#fff',
-    }
-}
-
 // ACTIONS
 
 // STORE
@@ -53,10 +35,31 @@ class UploadZone extends Component {
         // this.props.dispatch();
     }
 
+    containerStyle = {
+
+    }
+
+    cssStyle = (<style jsx>
+        {`
+            #drop-overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding: 2.5em 0;
+                background: rgba(219,219,219,0.1)';
+                text-align: center;
+                color: #fff;
+            }
+        `}
+    </style>)
+
     render() {
         return (
-            <div className="template-component-container" style={style.templateComponentContainerStyle}>
-                <div onClick={(e) => {this.dropzoneRef.onClick(e)}}>upload</div>
+            <div className="template-component-container" style={this.containerStyle}>
+                {this.cssStyle}
+                <div id="upload-button" onClick={(e) => {this.dropzoneRef.onClick(e)}}>upload</div>
                 <div onClick={this._handleOnClickButton}>send</div>
                 <div>
                   {
@@ -98,7 +101,7 @@ class UploadZone extends Component {
                 onDrop={this._onDrop}
                 onDragEnter={this._onEnter}
                 onDragLeave={this._onLeave}>
-                { this.state.dropzoneActive && <div style={style.dropOverlay}>Drop effect image files(png or gif)...</div> }
+                { this.state.dropzoneActive && <div id="drop-overlay">Drop effect image files(png or gif)...</div> }
             </Dropzone>
         );
 
@@ -149,6 +152,8 @@ class UploadZone extends Component {
 
         return axios.post('/api/upload', data, config);
     }
+
+
 }
 
 

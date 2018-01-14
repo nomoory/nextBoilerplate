@@ -8,6 +8,7 @@ var Present = ({ props, state, style, functions}) => {
     let {} = state;
     let {onClickFile} = functions;
     let content = data || demoData;
+
     return (
         <div id='context-tree-view-container' style={style.containerStyle}>
             <div id="tree-view-header" style={style.headerStyle}>
