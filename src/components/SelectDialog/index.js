@@ -12,7 +12,7 @@ import Icon from './Icon';
 
 import _ from 'lodash';
 import { getConnectedUser } from 'actions';
-import { RESTService } from 'services';
+import { AjaxService } from 'services';
 import utils from 'utils';
 
 // STORE
@@ -102,7 +102,7 @@ class SelectDialog extends React.Component {
   };
 
   async handleClickOpen() {
-    let userList = await RESTService.getUserList();
+    let userList = await AjaxService.getUserList();
     this.setState({ open: true, userList});
   };
 

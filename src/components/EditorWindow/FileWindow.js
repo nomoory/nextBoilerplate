@@ -6,7 +6,7 @@ import Button from 'material-ui/Button';
 
 import ReactAce from 'react-ace-editor';
 
-import {RESTService} from 'services';
+import {AjaxService} from 'services';
 
 // style
 let style = {

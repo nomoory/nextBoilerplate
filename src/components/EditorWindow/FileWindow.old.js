@@ -5,7 +5,7 @@ import _ from 'lodash';
 import {Editor, EditorState, ContentState, RichUtils, Modifier} from 'draft-js';
 import Button from 'material-ui/Button';
 
-import {RESTService} from 'services';
+import {AjaxService} from 'services';
 // style
 let style = {
     windowContainerStyle: {

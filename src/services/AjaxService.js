@@ -3,7 +3,7 @@ import {SERVER_BASE_URI} from "constants";
 
 class AjaxService {
     constructor(){
-        this.testUri = SPRING_SERVER_BASE_URI;
+        this.testUri = SERVER_BASE_URI;
     }
 
     connect(user) {
@@ -184,7 +184,7 @@ class AjaxService {
 }
 
 let getResponse = (method, path, params, data) => {
-    let baseURL = SPRING_SERVER_BASE_URI + path;
+    let baseURL = SERVER_BASE_URI + path;
     let content = axios.request({ method, params, baseURL, data})
     .then((res) => {
         let content = res.data;
@@ -219,6 +219,6 @@ let catchCallback = (error) => {
     }
 }
 
-let restService = new RESTService();
+let ajaxService = new AjaxService();
 
-export default restService
+export default ajaxService

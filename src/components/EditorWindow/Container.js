@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import {RESTService} from 'services';
+import {AjaxService} from 'services';
 import update from 'immutability-helper';
 
 // style
@@ -111,7 +111,7 @@ var contain = (Present)  => {
                     name: fileName,
                 }
                 // 해당 file에 대한 내용 요청
-                RESTService.updateYaml(params).then((content) => {
+                AjaxService.updateYaml(params).then((content) => {
                     let params = {
                         name, path, type: 'pattern', content
                     }
@@ -119,7 +119,7 @@ var contain = (Present)  => {
                 });
             } else if( extension == "entity") {
                 let params = { user, name: fileName, content };
-                RESTService.updateEntity(params).then((content) => {
+                AjaxService.updateEntity(params).then((content) => {
                     let params = {
                         name, path, type: 'entity', content
                     }

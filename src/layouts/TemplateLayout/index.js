@@ -3,7 +3,7 @@ import contain from './Container'
 // SUBCOMPONENTS
 import TemplateComponent from 'components/TemplateComponent'
 import TreeView from 'components/TreeView'
-import FileUpload from 'components/FileUpload'
+import FileUploader from 'components/FileUploader'
 
 var Present = ({ props, state, functions}) => {
     let { } = props;
@@ -34,7 +34,7 @@ var Present = ({ props, state, functions}) => {
                 <TemplateComponent/>
             </div>
             <div>
-                <FileUpload />
+                <FileUploader />
             </div>
         </div>
     )

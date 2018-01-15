@@ -13,7 +13,7 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
-import {RESTService} from 'services';
+import {AjaxService} from 'services';
 
 // style
 let style = {

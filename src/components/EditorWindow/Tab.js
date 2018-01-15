@@ -5,7 +5,7 @@ import _ from 'lodash';
 import {Editor, EditorState, ContentState, RichUtils, Modifier} from 'draft-js';
 import ButtonBase from 'material-ui/ButtonBase';
 
-import {RESTService} from 'services';
+import {AjaxService} from 'services';
 import Tooltip from 'material-ui/Tooltip';
 // style
 let style = {

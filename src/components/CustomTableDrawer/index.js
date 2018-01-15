@@ -20,7 +20,7 @@ import { TableCell, TableRow, Typography } from 'material-ui';
 
 import Icon from '../Icon';
 import { updateConnectedUser } from 'actions';
-import { RESTService } from 'services';
+import { AjaxService } from 'services';
 import utils from 'utils';
 
 const ReactJson = dynamic(import('react-json-view'));
@@ -120,7 +120,7 @@ class ConnectionStateDrawer extends React.Component {
             userId, viewId, audioId,
             recoSession, viewSession, audioSession,
             appName, language, clientCfg
-        } = await RESTService.getConnectionState(this.props.user);
+        } = await AjaxService.getConnectionState(this.props.user);
         let idRows = [{userId, viewId, audioId}];
         let sessionRows =[{recoSession, viewSession, audioSession}];
         let appRows = [{appName, language, clientCfg}];
